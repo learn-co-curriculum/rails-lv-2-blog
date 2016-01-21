@@ -1,16 +1,5 @@
 class PostsController < ApplicationController
 
-  def home
-    # What view do you think rails is going to try to impliclty render
-    # for the home action in the PostsController?
-
-    # app/views/home.html.erb
-    # app/views/posts/home.html.erb
-
-    # The Implicit Rendering Convention
-    # app/views/[controller_name]/[action_name].html.erb
-  end
-
   def index
     # app/views/posts/index.html.erb
     # all of our blog posts
@@ -21,4 +10,33 @@ class PostsController < ApplicationController
 
     render 'posts/index'
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @post.save #=>
+
+    if @post.save
+      redirect_to post_path(@post) #/posts/1
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  private
+    def post_params
+      params.require(:post).permit(:title, :content, :author_name)
+    end
+
 end

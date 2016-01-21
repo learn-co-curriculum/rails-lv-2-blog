@@ -9,15 +9,15 @@ Rails.application.routes.draw do
 
   # A Rails route maps a URL to a Controller and Action
                                   # Class        Method
-  get '/hello_world' => 'posts#home', :as => :avis_special_route
-      # URL               Class#method
 
   # GET /posts -> show an index of all my blog posts
   get "/posts" => 'posts#index', :as => :posts
+  post '/posts' => 'posts#create'
+  get '/posts/new' => 'posts#new', :as => :new_post
   get '/posts/:id' => 'posts#show', :as => :post
+  get '/posts/:id/edit' => 'posts#edit', :as => :edit_post
 
-  get '/about' => 'static#about', :as => :about
-  get '/team' => 'static#team'
+  # resources :posts #=>
 
   # GET /about -> StaticController#about
   # GET /team -> StaticController#team

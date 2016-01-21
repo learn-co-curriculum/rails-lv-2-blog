@@ -1,0 +1,46 @@
+<!--
+1. form tag <form> - the lowest level of abstraction
+2. form_tag - middle level of abtraction
+3. form_for - highest of level of abstraction
+-->
+
+<!-- <form action="/posts" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <p>
+    <label for="post_title">
+    <input type="text" name="title" id="post_title" value="<%= @post.title" %>/>
+  </p>
+
+  <p>
+    <label for="post_content">
+    <textarea name="content" id="post_content"></textarea>
+  </p>
+
+  <input type="submit" />
+</form> -->
+
+<!--
+  <%#= form_tag(posts_path) do %>
+  <p>
+    <%# if @post.errors[:title].any? %>
+      <span>You must include a title</span>
+    <%# end %>
+
+    <%#= label_tag 'title' %>
+    <%#= text_field_tag 'post[title]', @post.title %>
+  </p>
+
+  <p>
+    <%#= label_tag 'content' %>
+    <%#= text_area_tag 'post[content]', @post.content %>
+  </p>
+
+  <p>
+    <%#= label_tag 'author_name' %>
+    <%#= text_field_tag 'post[author_name]', @post.author_name %>
+  </p>
+
+  <%#= submit_tag 'Submit' %>
+<%# end %>
+-->
